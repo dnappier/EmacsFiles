@@ -58,7 +58,7 @@
 	(mode . idl-mode)
 	(mode . lisp-mode)))))))
  '(magit-git-executable "c:/Program Files (x86)/git/cmd/git.exe")
- '(package-selected-packages (quote (ggtags magit multiple-cursors))))
+ '(package-selected-packages (quote (jabber ggtags magit multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -81,3 +81,6 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+(load "~/.emacs-jabber")
+ 

@@ -1,0 +1,18 @@
+;;    (setq jabber-username "douglasnappier")
+;;    (setq jabber-password "")
+;;    (setq jabber-nickname "Doug")
+;;    (setq jabber-connection-type (quote ssl))
+;;    (setq jabber-network-server "talk.google.com")
+;;    (setq jabber-server "gmail.com")
+;;    (jabber-connect)
+
+ (setq jabber-account-list
+    '(("douglasnappier@gmail.com" 
+       (:network-server . "talk.google.com")
+       (:connection-type . ssl)
+       (:password . ""))
+       ("170508_1228865@chat.hipchat.com"
+       (:network-server . "chat.hipchat.com")
+       (:connection-type . ssl)
+       (:password . ""))))
+
