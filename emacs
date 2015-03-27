@@ -14,6 +14,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key (kbd "M-q") 'rebox-cycle)
 ;; Let's use CYGWIN bash...
 ;;
 (setq binary-process-input t) 
@@ -37,6 +38,7 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (tango-dark)))
+ '(global-mark-ring-max 5000)
  '(ibuffer-saved-filter-groups (quote (("c-groups" ("c-files" (used-mode . c-mode))))))
  '(ibuffer-saved-filters
    (quote
@@ -44,21 +46,23 @@
       ((used-mode . dired-mode)))
      ("gnus"
       ((or
-	(mode . message-mode)
-	(mode . mail-mode)
-	(mode . gnus-group-mode)
-	(mode . gnus-summary-mode)
-	(mode . gnus-article-mode))))
+        (mode . message-mode)
+        (mode . mail-mode)
+        (mode . gnus-group-mode)
+        (mode . gnus-summary-mode)
+        (mode . gnus-article-mode))))
      ("programming"
       ((or
-	(mode . emacs-lisp-mode)
-	(mode . cperl-mode)
-	(mode . c-mode)
-	(mode . java-mode)
-	(mode . idl-mode)
-	(mode . lisp-mode)))))))
+        (mode . emacs-lisp-mode)
+        (mode . cperl-mode)
+        (mode . c-mode)
+        (mode . java-mode)
+        (mode . idl-mode)
+        (mode . lisp-mode)))))))
  '(magit-git-executable "c:/Program Files (x86)/git/cmd/git.exe")
- '(package-selected-packages (quote (jabber ggtags magit multiple-cursors))))
+ '(package-selected-packages
+   (quote
+    (ido-vertical-mode duplicate-thing rebox2 yasnippet undo-tree volatile-highlights jabber ggtags magit multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -68,6 +72,7 @@
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
 
 (load-file "~/.emacs.d/macros")
 
@@ -80,7 +85,28 @@
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-(ido-mode 1)
+(ido-vertical-mode 1)
 
-(load "~/.emacs-jabber")
- 
+(load "~/.emacs-jab")
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; add your modules path
+(add-to-list 'load-path "~/.emacs.d/custom/")
+
+;; load your modules
+;;(require 'setup-applications)
+(;;require 'setup-communication)
+(;;require 'setup-convenience)
+;;(require 'setup-data)
+;;(require 'setup-development)
+(require 'setup-editing)
+;;(require 'setup-environment)
+;;(require 'setup-external)
+;;(require 'setup-faces-and-ui)
+;;(require 'setup-files)
+;;(require 'setup-help)
+;;(require 'setup-programming)
+;;(require 'setup-text)
+;;(require 'setup-local)
